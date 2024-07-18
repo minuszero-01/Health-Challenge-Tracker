@@ -1,0 +1,31 @@
+<div class="border border-slate-500 mb-4 w-full"></div>
+<div class="mb-4 h-screen">
+  <div class="text-4xl font-light mb-2">Your Workout Progress</div>
+  <div class="flex h-3/4 justify-between">
+    <div class="w-1/4 h-full flex justify-center mt-4">
+      <div
+        class="border-2 p-2 rounded-xl border-black w-full h-[300px] overflow-auto"
+      >
+        <div class="text-xl p-2 border-b border-black">Users</div>
+        @for (item of originalData; track $index){
+        <button
+          class="text-black text-start border-b w-full hover:bg-slate-200 focus:ring-1 focus:ring-slate-300 font-medium rounded-lg text-sm px-2 py-2.5 my-2 focus:outline-none"
+          color="primary"
+          [value]="item.name"
+          (click)="getName($event)"
+        >
+          {{ item.name }}
+        </button>
+        }
+      </div>
+    </div>
+    <div class="w-3/4 h-full">
+      <div class="m-4 text-2xl font-light ml-6">User Data Graph</div>
+      <div class="border-2 w-3/4 h-max m-6">
+        <div>
+          <p-chart type="bar" [data]="basicData" [options]="basicOptions" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="mt-4 p-2 rounded-lg">
+  <div class="text-4xl font-light mb-4">Add a User</div>
+  <form
+    class="flex flex-col min-w-[150px] max-w-[450px] w-full"
+    #addUser="ngForm"
+  >
+    <mat-form-field class="w-1/2">
+      <mat-label>Your name</mat-label>
+      <input
+        type="text"
+        required
+        ngModel
+        #name="ngModel"
+        matInput
+        value=""
+        name="name"
+        minlength="2"
+        pattern="^[a-zA-Z ]*$"
+      />
+      <mat-error *ngIf="name">Enter Name Correctly</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-1/2">
+      <mat-label>Workout Type</mat-label>
+      <mat-select required ngModel #workoutType="ngModel" name="workoutType">
+        <mat-option value="Cycling">Cycling</mat-option>
+        <mat-option value="Running">Running</mat-option>
+        <mat-option value="Swimming">Swimming</mat-option>
+        <mat-option value="Yoga">Yoga</mat-option>
+      </mat-select>
+      <mat-error *ngIf="workoutType">Required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-1/2">
+      <mat-label>Workout Minutes</mat-label>
+      <input
+        required
+        type="number"
+        matInput
+        value=""
+        ngModel
+        #workoutMinutes="ngModel"
+        name="workoutMinutes"
+        pattern="^[1-9][0-9]*$"
+      />
+      <mat-error *ngIf="workoutMinutes">Enter Valid Minutes</mat-error>
+    </mat-form-field>
+
+    <div class="flex gap-4">
+      <button
+        class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none disabled:cursor-not-allowed"
+        color="primary"
+        (click)="registerUser(addUser)"
+        [disabled]="!addUser.valid"
+      >
+        Add Workout
+      </button>
+      <button
+        class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+        (click)="resetUser(addUser)"
+      >
+        Clear
+      </button>
+    </div>
+  </form>
+</div>

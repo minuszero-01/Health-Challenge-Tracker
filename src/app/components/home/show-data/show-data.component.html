@@ -1,0 +1,65 @@
+<div class="border border-slate-500 mb-4"></div>
+<div class="text-4xl font-light mb-4">Your Data</div>
+<div class="flex flex-col items-center justify-center gap-4 mx-2">
+  <div
+    class="flex xl:flex-row xl:justify-between xl:items-center flex-col items-start w-full py-4"
+  >
+    <app-search (search)="onSearch($event)" />
+    <app-filter (filter)="onFilter($event)" />
+  </div>
+
+  <div class="mat-elevation-z8 w-full">
+    <table mat-table [dataSource]="dataSource">
+      <!-- For id Coloumn -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <!-- For Name Coloumn -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <!-- For Workouts Coloumn -->
+      <ng-container matColumnDef="workouts">
+        <th mat-header-cell *matHeaderCellDef>Workouts</th>
+        <td mat-cell *matCellDef="let element">
+          <ng-container *ngFor="let workoutType of element.workout">
+            {{ workoutType.type }}
+          </ng-container>
+        </td>
+      </ng-container>
+
+      <!-- For No of Workouts Coloumn -->
+      <ng-container matColumnDef="totalWorkout">
+        <th mat-header-cell *matHeaderCellDef>Number of Workouts</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.noOfWorkout }}
+        </td>
+      </ng-container>
+
+      <!-- For Total Workout Time Coloumn -->
+      <ng-container matColumnDef="totalWorkoutMinutes">
+        <th mat-header-cell *matHeaderCellDef>Total Workout Minutes</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.totalMinutes }}
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayColumns"></tr>
+    </table>
+  </div>
+
+  <div
+    class="border-2 w-max rounded-xl border-slate-200 flex justify-center mb-4"
+  >
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
+</div>

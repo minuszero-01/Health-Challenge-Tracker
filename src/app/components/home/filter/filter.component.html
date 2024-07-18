@@ -1,0 +1,16 @@
+<div>
+  <mat-form-field class="w-[400px]">
+    <mat-label>Filter by Workout Type</mat-label>
+    <mat-select
+      [(ngModel)]="selectedWorkout"
+      (selectionChange)="onWorkoutChange($event)"
+      required
+    >
+      <mat-option value="">All</mat-option>
+      <mat-option value="Cycling">Cycling</mat-option>
+      <mat-option value="Running">Running</mat-option>
+      <mat-option value="Swimming">Swimming</mat-option>
+      <mat-option value="Yoga">Yoga</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
