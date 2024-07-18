@@ -85,7 +85,15 @@ export class ShowDataComponent implements AfterViewInit {
       }))
       .filter((item) => item.workout.length > 0);
 
+    filteredData.forEach((item) => {
+      item.noOfWorkout = item.workout.length;
+      item.totalMinutes = 0;
+      item.workout.forEach((workoutMin) => {
+        item.totalMinutes += Number(workoutMin.minutes);
+      });
+    });
     this.dataSource.data = filteredData;
+    console.log(filteredData);
   }
 }
 
