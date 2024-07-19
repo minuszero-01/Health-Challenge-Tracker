@@ -1,27 +1,47 @@
-# MyApp
+# Health Challenge Tracker (Assignment*)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+This app is developed in Angular framework where it enables user to tracker daily exercise timely routine and help you stay fit 💪 
 
-## Development server
+## Specifications
+- Add User Section
+  - User can enter their details like Name, Workout type, Workout minutes.
+- Search Data
+  - User can search their data based on their Name or Workout type.
+  - Data is displayed in table format with pagination of more than 5 users.
+- Graphical Visualization
+  - Total number of users and displayed and on clicking a specific user, graphical data is displayed on which it has their all workouts with the time period in minutes.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Things to remember
+- In Add user section
+  - user input can only be in alphabets. (min 2 letters)
+  - user workout minutes should be a positive number 
+  - all fields are required else the add workout button is disabled
+  - clear button is for clearing all inputs before submitting (if typed something wrong)
+  -form resets after clicking the add workout button, so user can enter more workouts.
+- In Search Section
+  - User can search by their name
+  - User can also use the filter the see specific workout (filtering by workout user can see the total minutes only for that specific workout)
+- In Graph Data Section
+  - User can click on the specific user to see its workout plan.
 
-## Code scaffolding
+## Tests
+- Unit tests are written one component and one service 
+  - Search Component  
+`my-app\src\app\components\home\search\search.component.spec.ts`
+  - Stored-Data Service (it retrieves data from local Storage)  
+`my-app\src\app\stored-data.service.ts`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+ 
+## Start Project Locally
+- go to the project directory
+```bash
+cd project_name
+```
+- Run this command to install all packages
+```bash
+npm install
+```
+- then start your app. Navigate to `http://localhost:4200/`
+```bash
+ng serve
+```
