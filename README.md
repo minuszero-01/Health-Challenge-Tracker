@@ -16,6 +16,8 @@ This app is developed in Angular framework where it enables user to tracker dail
 - Graphical Visualization
   - Total number of users and displayed and on clicking a specific user, graphical data is displayed on which it has their all workouts with the time period in minutes.
 
+Refresh the page to see changes.
+
 ## Things to remember
 
 - In Add user section
@@ -39,6 +41,12 @@ This app is developed in Angular framework where it enables user to tracker dail
     `my-app\src\app\stored-data.service.ts`
 
 ## Start Project Locally
+
+- Clone the Project
+
+```bash
+git clone https://github.com/minuszero-01/Health-Challenge-Tracker.git
+```
 
 - go to the project directory
 
