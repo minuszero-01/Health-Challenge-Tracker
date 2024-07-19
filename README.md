@@ -24,8 +24,7 @@ Refresh the page to see changes.
   - user input can only be in alphabets. (min 2 letters)
   - user workout minutes should be a positive number
   - all fields are required else the add workout button is disabled
-  - clear button is for clearing all inputs before submitting (if typed something wrong)
-    -form resets after clicking the add workout button, so user can enter more workouts.
+  - form resets after clicking the add workout button, so user can enter more workouts.
 - In Search Section
   - User can search by their name
   - User can also use the filter the see specific workout (filtering by workout user can see the total minutes only for that specific workout)
