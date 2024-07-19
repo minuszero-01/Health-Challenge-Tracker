@@ -1,6 +1,6 @@
 # Health Challenge Tracker (Assignment*)
 
-This app is developed in Angular framework where it enables user to tracker daily exercise timely routine and help you stay fit 💪 
+This app is developed in Angular framework where it enables user to tracker daily exercise timely routine and help them to stay fit 💪 
 
 ## Specifications
 - Add User Section
