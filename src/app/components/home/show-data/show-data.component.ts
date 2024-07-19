@@ -34,7 +34,7 @@ export class ShowDataComponent implements AfterViewInit {
   // Using Service
   storedData1 = inject(StoredDataService);
 
-  //Handling Local Storage as initialing it was accessing before components is fully rendered
+  //Handling Local Storage
   constructor() {
     if (typeof window !== 'undefined' && localStorage) {
       const storedData = this.storedData1.storedData;
@@ -50,7 +50,7 @@ export class ShowDataComponent implements AfterViewInit {
         });
       });
 
-      this.data = this.originalData; // Copy of Original Data used in table
+      this.data = this.originalData;
     } else {
       this.data = [];
     }
@@ -67,6 +67,7 @@ export class ShowDataComponent implements AfterViewInit {
     console.log(this.data);
   }
 
+  //Search by Name Logic
   onSearch(search: string) {
     console.log(search);
     this.data = this.originalData.filter((item) =>
@@ -75,6 +76,7 @@ export class ShowDataComponent implements AfterViewInit {
     this.dataSource.data = this.data;
   }
 
+  //Filter by Workout Type Logic
   onFilter(filter: string) {
     const filteredData = this.originalData
       .map((item) => ({

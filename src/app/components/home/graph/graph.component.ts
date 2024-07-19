@@ -18,24 +18,25 @@ export class GraphComponent {
   newLabel: any = [];
   newDataMinutes: any = [];
 
-  //Handling Local Storage as initialing it was accessing before components is fully rendered
+  //Handling Local Storage
   constructor() {
     if (typeof window !== 'undefined' && localStorage) {
       const storedData = localStorage.getItem('userData');
 
-      // Adding Combined Data for Table.
       this.originalData = storedData ? JSON.parse(storedData) : [];
     }
   }
 
   getName(event: any) {
+    // Filtering Data by name to show the graphical data
     const filteredData = this.originalData.filter((x) => {
-      return x.name === event.target.value; // it returns true or false
+      return x.name === event.target.value;
     });
 
-    console.log(filteredData);
-
+    // Logic for labels (workout types)
     this.newLabel = filteredData.map((item) => item.workout.map((x) => x.type));
+
+    //Logic for data (workout per minute)
     this.newDataMinutes = filteredData.map((item) =>
       item.workout.map((x) => x.minutes)
     );
@@ -44,7 +45,7 @@ export class GraphComponent {
       labels: this.newLabel[0], // Workouts
       datasets: [
         {
-          label: ['Minutes'], // Minutes
+          label: ['Minutes'], // Minutes label
           data: this.newDataMinutes[0], // Workout Minutes
           backgroundColor: ['rgba(255, 159, 64, 0.2)'],
           borderColor: ['rgb(255, 159, 64)'],

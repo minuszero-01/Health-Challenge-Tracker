@@ -69,14 +69,12 @@ describe('SearchComponent', () => {
     // Click the search button
     searchButton.nativeElement.click();
 
-    // Expect the search event to be emitted with the correct value
     expect(component.search.emit).toHaveBeenCalledWith('test search');
   });
 
   it('should update text property when input value changes', () => {
     const testValue = 'new value';
 
-    // Simulate input event
     inputElement.value = testValue;
     inputElement.dispatchEvent(new Event('input'));
 

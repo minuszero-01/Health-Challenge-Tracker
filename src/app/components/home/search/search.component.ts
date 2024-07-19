@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './search.component.css',
 })
 export class SearchComponent {
+  //Sending this event to show data component for search logic
   @Output() search = new EventEmitter<string>();
 
   onSearch() {

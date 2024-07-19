@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './filter.component.css',
 })
 export class FilterComponent {
+  //Sending the data show data component for filter logic
   @Output() filter = new EventEmitter<string>();
 
   selectedWorkout: string = '';

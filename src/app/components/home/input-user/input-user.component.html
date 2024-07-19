@@ -4,6 +4,7 @@
     class="flex flex-col min-w-[150px] max-w-[450px] w-full"
     #addUser="ngForm"
   >
+    <!-- Input Name -->
     <mat-form-field class="w-1/2">
       <mat-label>Your name</mat-label>
       <input
@@ -20,6 +21,7 @@
       <mat-error *ngIf="name">Enter Name Correctly</mat-error>
     </mat-form-field>
 
+    <!-- Your Workout Type -->
     <mat-form-field class="w-1/2">
       <mat-label>Workout Type</mat-label>
       <mat-select required ngModel #workoutType="ngModel" name="workoutType">
@@ -31,6 +33,7 @@
       <mat-error *ngIf="workoutType">Required</mat-error>
     </mat-form-field>
 
+    <!-- Duration of Workout -->
     <mat-form-field class="w-1/2">
       <mat-label>Workout Minutes</mat-label>
       <input
@@ -46,6 +49,7 @@
       <mat-error *ngIf="workoutMinutes">Enter Valid Minutes</mat-error>
     </mat-form-field>
 
+    <!-- Submit Button -->
     <div class="flex gap-4">
       <button
         class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none disabled:cursor-not-allowed"
@@ -54,12 +58,6 @@
         [disabled]="!addUser.valid"
       >
         Add Workout
-      </button>
-      <button
-        class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
-        (click)="resetUser(addUser)"
-      >
-        Clear
       </button>
     </div>
   </form>
